@@ -1,0 +1,12 @@
+
+1. create rest endpoint to call source/a and source/b
+2. read and validate from a and b async?yes
+3. store a ids into a set
+4. store b ids into a set
+5. iterate a and compare it to b -same: join 2 both endpoint | -diff: orphand to a
+6. iterate b and compare it to a -diff: orphand to b
+7. the POST sink endpoint should store recordes in a file -> submited
+
+
+//READ
+read until done showed up --> @Feign
