@@ -5,8 +5,13 @@
 4. store b ids into a set
 5. iterate a and compare it to b -same: join 2 both endpoint | -diff: orphand to a
 6. iterate b and compare it to a -diff: orphand to b
-7. the POST sink endpoint should store recordes in a file -> submited
+7. call POST sink
 
 
 //READ
 read until done showed up --> @Feign
+
+in case of 406, call other endpoint
+report the "joined' and "orphaned" records to /sink/a
+
+//at first call a

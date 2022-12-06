@@ -1,21 +1,22 @@
 package com.test.raisin.client;
 
-import model.ResponseA;
+import com.test.raisin.Exception.Exception_406;
+import com.test.raisin.config.FeignConfig;
+import com.test.raisin.model.Msg;
+import com.test.raisin.model.ResponseA;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.xml.sax.SAXParseException;
 
-import java.util.List;
-import java.util.Map;
 
-@FeignClient(value = "AClient",url = "http://localhost:7299/source")
+@FeignClient(value = "AClient",url = "http://localhost:7299/source", configuration = FeignConfig.class)
 public interface SourceAclient {
 
     @GetMapping("/a")
-    Map getIDsA();
+    ResponseA getIDsA() throws Exception_406;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/b")
-    String getIDsB();
+    @GetMapping(value = "/b", produces = MediaType.APPLICATION_XML_VALUE)
+    Msg getIDsB() throws HttpMessageNotReadableException;
 }
