@@ -11,11 +11,10 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.xml.sax.SAXParseException;
 
 
 @FeignClient(value = "AClient",url = "http://localhost:7299", configuration = FeignConfig.class)
-public interface SourceAclient {
+public interface SourceClient {
 
     @GetMapping("/source/a")
     ResponseA getIDsA() throws Exception_406;

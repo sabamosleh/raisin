@@ -1,6 +1,6 @@
 package com.test.raisin.controller;
 
-import com.test.raisin.client.SourceAclient;
+import com.test.raisin.client.SourceClient;
 import com.test.raisin.service.SourceAService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,14 +10,14 @@ import org.xml.sax.SAXParseException;
 
 @RestController
 @RequestMapping(value = "/api/v1")
-public class AController {
+public class Controller {
 
     private final SourceAService sourceAService;
-    private final SourceAclient sourceAclient;
+    private final SourceClient sourceClient;
 
-    public AController(SourceAService sourceAService, SourceAclient sourceAclient) {
+    public Controller(SourceAService sourceAService, SourceClient sourceClient) {
         this.sourceAService = sourceAService;
-        this.sourceAclient = sourceAclient;
+        this.sourceClient = sourceClient;
     }
 
     @GetMapping(value = "/a")
@@ -27,6 +27,6 @@ public class AController {
 
     @GetMapping(value = "/b")
     public ResponseEntity allIDsB() throws SAXParseException {
-        return ResponseEntity.ok(sourceAclient.getIDsB());
+        return ResponseEntity.ok(sourceClient.getIDsB());
     }
 }
