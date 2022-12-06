@@ -39,7 +39,7 @@ public class SourceServiceTest {
         //given
         ResponseA responseA = ResponseA.builder().build();
         responseA.setId(UUID.randomUUID().toString());
-        responseA.setStatus("ok");
+        responseA.setStatus("done");
         Mockito.when(sourceClient.getIDsA()).thenReturn(responseA);
         //when
         List<String> ids = sourceService.getAsourceIds();
