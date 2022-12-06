@@ -6,6 +6,7 @@ import lombok.*;
 
 @Data
 @Builder
+
 public class ResponseA {
 
     private String status;
