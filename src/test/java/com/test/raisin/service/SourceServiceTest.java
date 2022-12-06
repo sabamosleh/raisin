@@ -1,6 +1,8 @@
 package com.test.raisin.service;
 
 import com.test.raisin.client.SourceClient;
+import com.test.raisin.model.Id;
+import com.test.raisin.model.Msg;
 import com.test.raisin.model.ResponseA;
 import org.junit.jupiter.api.Assertions;
 
@@ -34,7 +36,7 @@ public class SourceServiceTest {
     }
 
     @Test
-    void getAsourceIds_200_OK(){
+    void getAsourceIds_200_done(){
 
         //given
         ResponseA responseA = ResponseA.builder().build();
@@ -46,6 +48,26 @@ public class SourceServiceTest {
         //then
         Assertions.assertNotNull(ids);
         Assertions.assertNotEquals(0,ids.size());
+    }
+
+    @Test
+    void getBsourceIds_200_done(){
+
+        //given
+        Id id = null;
+        Msg responseB = new Msg(new Id());
+        responseB.setId(id);
+        Mockito.when(sourceClient.getIDsB()).thenReturn(responseB);
+
+        ResponseA responseA = ResponseA.builder().build();
+        responseA.setId(UUID.randomUUID().toString());
+        responseA.setStatus("done");
+        Mockito.when(sourceClient.getIDsA()).thenReturn(responseA);
+        //when
+        List<String> ids = sourceService.getBsourceIds();
+        //then
+        Assertions.assertNotNull(ids);
+//        Assertions.assertNotEquals(0,ids.size());
     }
 
 }
