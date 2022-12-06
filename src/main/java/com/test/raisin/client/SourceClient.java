@@ -1,6 +1,6 @@
 package com.test.raisin.client;
 
-import com.test.raisin.Exception.Exception_406;
+import com.test.raisin.exception.Exception_406;
 import com.test.raisin.config.FeignConfig;
 import com.test.raisin.model.Msg;
 import com.test.raisin.model.ResponseA;

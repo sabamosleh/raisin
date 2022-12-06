@@ -1,6 +1,6 @@
 package com.test.raisin.config;
 
-import com.test.raisin.Exception.Exception_406;
+import com.test.raisin.exception.Exception_406;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import org.springframework.http.HttpStatus;

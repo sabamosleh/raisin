@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class SourceAService {
+public class SourceService {
 
     Set<String> aSet = new HashSet<>();
     Set<String> bSet = new HashSet<>();
 
-    public SourceAService(SourceClient sourceClient) {
+    public SourceService(SourceClient sourceClient) {
         this.sourceClient = sourceClient;
     }
 
